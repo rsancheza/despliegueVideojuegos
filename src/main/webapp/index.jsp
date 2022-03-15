@@ -40,14 +40,6 @@
                     <td><%=rset.getString("modalidad")%></td>
                     <td><%=rset.getString("nombre_empresa")%></td>
                     <td><%=rset.getInt("precio")%></td>
-                    <td>
-                        <form method="post" action="${pageContext.request.contextPath}/ServletControlador">
-                            <input type="button" value="Editar">
-                            <input type="hidden" name="op" value="Editar">
-                            <input type="hidden" name="id" value="<%=rset.getInt("id")%>">
-                            
-                        </form>
-                    </td>
                 </tr>
         <%
             }
