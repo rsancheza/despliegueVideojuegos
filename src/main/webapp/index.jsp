@@ -1,9 +1,3 @@
-<%-- 
-    Document   : index
-    Created on : 22-feb-2022, 20:57:49
-    Author     : esteban
---%>
-
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -14,8 +8,6 @@
     <body>
         <%@page import="java.sql.*" %>     
        
-        
-        
         <h1>Videojuegos</h1>
         <h2>Listado de videojuegos</h2>
         <%  Class.forName("com.mysql.jdbc.Driver").newInstance();
@@ -23,13 +15,10 @@
             String password = "aK%sJual2M@GihI782";
             String url = "jdbc:mysql://localhost/simbadatabase";
             Connection conn = DriverManager.getConnection(url, username, password);
-            
-
             Statement stmt=conn.createStatement();
             String sqlStr="select * from viewjuegos";
             
-            ResultSet rset=stmt.executeQuery(sqlStr);
-                   
+            ResultSet rset=stmt.executeQuery(sqlStr);     
         %>
         <table border="1">
             <thead>
@@ -41,17 +30,11 @@
                     <th>Precio</th>
                 </tr>
             </thead>
-            
             <tbody>
-                
-            
-            
             <%
                 while (rset.next()){                                 
             %>
-            
                 <tr>
-                    
                     <td><%=rset.getInt("id")%></td>
                     <td><%=rset.getString("nombre")%></td>
                     <td><%=rset.getString("modalidad")%></td>
@@ -66,17 +49,10 @@
                         </form>
                     </td>
                 </tr>
-            
-                    
-                                
-            
-            
-        
         <%
             }
             rset.close();
             conn.close();
-            
         %>
             </tbody>
         </table>
